@@ -1,19 +1,11 @@
-import PostForm from "@/components/PostForm";
-import { createPost } from "@/services/api";
-
-
+import PostForm from "@/features/posts/components/PostForm";
+import Container from "@/shared/components/Container";
+import styles from "./page.module.css";
 export default function CreatePage() {
-    async function handleCreate(title:string,body:string) {
-        await createPost({title,body});
-    }
-
-    return (
-        <main className="container">
-            <h1 className="heading">Yeni post yarat</h1>
-            <PostForm 
-            onSubmit={handleCreate}
-            buttonText="Yarat"
-            />
-        </main>
-    )
+  return (
+    <Container>
+     <h1 className={styles.heading}>Yeni post yarat</h1>
+      <PostForm mode="create" buttonText="Yarat" />
+    </Container>
+  );
 }

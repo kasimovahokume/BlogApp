@@ -1,4 +1,9 @@
 "use client";
+
+import Button from "@/shared/components/Button";
+import Container from "@/shared/components/Container";
+import styles from "./error.module.css";
+
 interface ErrorProps {
   error: Error;
   reset: () => void;
@@ -6,12 +11,14 @@ interface ErrorProps {
 
 export default function Error({ error, reset }: ErrorProps) {
   return (
-    <main className="container">
-      <h1 className="heading">Xeta bas verdi</h1>
-      <p>{error.message || "Namelum xeta bas verdi"}</p>
-      <button onClick={() => reset()} className="actions">
-        yeniden cehd et
-      </button>
-    </main>
+    <Container>
+      <div className={styles.wrapper}>
+        <h1 className={styles.heading}>Xeta bas verdi</h1>
+        <p className={styles.message}>
+          {error.message || "Naməlum xəta baş verdi"}
+        </p>
+        <Button onClick={() => reset()}>Yeniden cehd et</Button>
+      </div>
+    </Container>
   );
 }

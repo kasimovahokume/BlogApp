@@ -1,0 +1,27 @@
+.wrapper {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.code {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin: 0;
+  color: var(--foreground);
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.heading {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin: 16px 0 8px 0;
+  letter-spacing: -0.015em;
+  color: var(--foreground);
+}
+
+.message {
+  color: var(--text-muted);
+  margin: 0 0 24px 0;
+  font-size: 0.875rem;
+}

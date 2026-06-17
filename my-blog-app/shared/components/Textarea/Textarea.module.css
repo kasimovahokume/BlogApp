@@ -1,0 +1,57 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+.label {
+  font-weight: 500;
+  font-size: 0.8125rem;
+  color: var(--foreground);
+  letter-spacing: -0.005em;
+}
+
+.textarea {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 10px 12px;
+  font-size: 0.875rem;
+  outline: none;
+  transition: all 0.15s ease;
+  font-family: inherit;
+  background-color: var(--background);
+  color: var(--foreground);
+  width: 100%;
+  resize: vertical;
+  min-height: 140px;
+  line-height: 1.6;
+}
+
+.textarea:hover:not(:focus) {
+  border-color: var(--border-hover);
+}
+
+.textarea:focus {
+  border-color: var(--foreground);
+  box-shadow: 0 0 0 3px rgba(9, 9, 11, 0.06);
+}
+
+.textarea::placeholder {
+  color: var(--text-subtle);
+}
+
+.textareaError {
+  border-color: var(--danger);
+}
+
+.textareaError:focus {
+  border-color: var(--danger);
+  box-shadow: 0 0 0 3px rgba(229, 72, 77, 0.1);
+}
+
+.error {
+  color: var(--danger);
+  font-size: 0.75rem;
+  font-weight: 500;
+}

@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
+import { createPost, updatePost } from "@/features/posts/services/api";
 
 export function usePostForm(
-  onSubmit: (title: string, body: string) => Promise<void>,
+  mode: "create" | "edit",
+  postId: number | undefined,
   initialTitle = "",
   initialBody = ""
 ) {
@@ -23,7 +25,12 @@ export function usePostForm(
     try {
       setLoading(true);
       setError("");
-      await onSubmit(title, body);
+
+      if (mode === "create") {
+        await createPost({title, body});
+      } else {
+        await updatePost(postId!, {title,body});
+      }
       router.push("/");
     } catch {
       setError("Xəta baş verdi. Yenidən cəhd edin.");

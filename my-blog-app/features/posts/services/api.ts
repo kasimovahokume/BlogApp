@@ -1,16 +1,17 @@
-import { Post } from "@/types/post";
+import { Post } from "@/features/posts/types/post";
 import { notFound } from "next/navigation";
 
-const BASE_URL = "https://blog-api-t6u0.onrender.com/posts";
+const BASE_URL = process.env.NEXT_PUBLIC_API_URL!;
 
 export async function getPosts(): Promise<Post[]> {
-    const res = await fetch(BASE_URL)
-    if(!res.ok) throw new Error("Postlar yuklenmedi")
-    return res.json();
+    const res = await fetch(BASE_URL ,{ cache: "no-store" })
+    if(!res.ok) throw new Error("Failed to load posts");
+    const data: Post[] = await res.json();
+    return data.reverse();
 }
 
 export async function getPost(id: number): Promise<Post> {
-    const res = await fetch(`${BASE_URL}/${id}`);
+    const res = await fetch(`${BASE_URL}/${id}`, { cache: "no-store" });
     if(res.status === 404) notFound();
     if(!res.ok) throw new Error ("Post tapilmadi");
     return res.json();

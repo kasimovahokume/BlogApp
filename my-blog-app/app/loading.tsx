@@ -1,7 +1,10 @@
+import Container from "@/shared/components/Container";
+import LoadingSpinner from "@/shared/components/LoadingSpinner";
+
 export default function Loading() {
   return (
-    <div className="flex items-center justify-center min-h-screen">
-      <p className="text-xl">Yüklənir...</p>
-    </div>
+   <Container>
+    <LoadingSpinner/>
+   </Container>
   );
 }
