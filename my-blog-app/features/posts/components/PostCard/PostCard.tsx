@@ -8,12 +8,13 @@ interface PostCardProps {
 }
 
 export default function PostCard({ post }: PostCardProps) {
-  const truncatedBody = post.body.length > 100 ? post.body.substring(0, 100) + "..." : post.body;
+  const body = post.body ?? "";
+  const truncatedBody = body.length > 100 ? body.substring(0, 100) + "..." : body;
 
   return (
-    <article  className={styles.card}>
+    <article className={styles.card}>
       <div className={styles.content}>
-        <h2 className={styles.title}>{post.title}</h2>
+        <h2 className={styles.title}>{post.title || "Başlıqsız"}</h2>
         <p className={styles.body}>{truncatedBody}</p>
       </div>
       <Link href={`/posts/${post.id}`} className={styles.linkWrapper}>
